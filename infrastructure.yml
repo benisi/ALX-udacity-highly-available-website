@@ -1,8 +1,9 @@
+Description: >
+    Project: Deploying a highly available server
 Parameters:
-  # Paramenters are entirely optional.
-  # but using them will make your cloudformation templates more reusable
-  # use them for things that may change over time, such as instance type,
-  # VPCs and so on.
+  EnvironmentName:
+    Description: The name that will be prefix to all resources for easy identification
+    Type: String
 Resources:
   # instace profile contains the IAM Role name(s) that we want to associate to our auto scaling EC2 Servers
   # never give too much permissions to your EC2 instances! if they get hacked, the permissions get hacked also!
@@ -12,7 +13,12 @@ Resources:
     Properties: 
       Roles:
         - UdacityS3ReadOnlyEC2
-Outputs: 
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsHostnames: true
+# Outputs: 
   # This is also optional.
   # Bonus points for useful outputs!
   # for example, if you create a Load Balancer
