@@ -1,0 +1,10 @@
+Description: > 
+  Server setup
+
+Parameters: 
+  EnvironmentName:
+    Description: Name of the environment used to reference exported output
+    Type: String
+
+Resources:
+  
