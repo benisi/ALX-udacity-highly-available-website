@@ -44,7 +44,7 @@ Resources:
   WebAppLaunchConfig:
     Type: AWS::AutoScaling::LaunchConfiguration
     Properties:
-      ImageId: ami-08d95e6361e8504b6
+      ImageId: ami-005de95e8ff495156
       InstanceType: t3.medium
       UserData:
         Fn::Base64: !Sub |
@@ -66,7 +66,7 @@ Resources:
       VPCZoneIdentifier:
         - Fn::ImportValue: !Sub ${EnvironmentName}-PRIV-SUB-LIST
       LaunchConfigurationName: !Ref WebAppLaunchConfig
-      MinSize: '2'
+      MinSize: '4'
       MaxSize: '4'
       TargetGroupARNs:
         - !Ref WebAppTargetGroup
