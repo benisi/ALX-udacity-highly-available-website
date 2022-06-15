@@ -1,11 +1,14 @@
 ### Project Title - Deploy a high-availability web app using CloudFormation
-This folder provides the starter code for the "ND9991 - C2- Infrastructure as Code - Deploy a high-availability web app using CloudFormation" project. This folder contains the following files:
 
+This project have two seperate files
 
-#### final-project-starter.yml
-Students have to write the CloudFormation code using this YAML template for building the cloud infrastructure, as required for the project. 
+1. Network Configuration
+2. Server Configuration
 
-#### server-parameters.json
-Students may use a JSON file for increasing the generic nature of the YAML code. For example, the JSON file contains a "ParameterKey" as "EnvironmentName" and "ParameterValue" as "UdacityProject". 
+To setup the project kindly run the following command
 
-In YAML code, the `${EnvironmentName}` would be substituted with `UdacityProject` accordingly.
+1. Setup network: "aws cloudformation create-stack --stack-name project1-network --region us-east-1 --template-body file://network.yml --parameters file://network-parameters.json"
+
+2. Setup server: "aws cloudformation create-stack --stack-name project1-servers --region us-east-1 --template-body file://servers.yml --parameters file://server-parameters.json"
+
+From the server stack (project1-servers) outputs you can get the Load balancer url (key: LoadBalancerUrl)
