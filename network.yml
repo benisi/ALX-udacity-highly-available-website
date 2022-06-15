@@ -1,5 +1,5 @@
 Description: >
-    Project: Network setup
+    Project 1: Network setup
 Parameters:
   EnvironmentName:
     Description: The name that will be prefix to all resources for easy identification
